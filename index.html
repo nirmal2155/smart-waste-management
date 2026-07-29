@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFlow — Smart Waste Management System</title>
+    <meta name="description" content="EcoFlow: India's premier Smart Waste Management System. Monitor fleets, optimize routes, manage customers, and track Swachh Bharat compliance.">
+    
+    <!-- Security Content Policy & PWA Manifest -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; frame-src 'self' https://maps.google.com https://www.google.com https://*.google.com; child-src 'self' https://maps.google.com https://www.google.com;">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="EcoFlow — Smart Waste Management System">
+    <meta property="og:description" content="India's premier AI-powered municipal waste management platform with real-time fleet tracking, route optimization, and Swachh Bharat compliance.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/logo.jpg">
+    <link rel="dns-prefetch" href="https://maps.google.com">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" fetchpriority="high">
+    <link rel="stylesheet" href="css/patch.css">
+    <link rel="preload" href="js/app.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+</head>
+<body>
+    <!-- Skip to main content link for screen reader & keyboard accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main Navigation">
+            <div class="sidebar-header">
+                <img src="assets/logo.jpg" alt="EcoFlow Logo" class="brand-logo" id="brand-logo">
+                <div class="brand-text">
+                    <h1 class="brand-name">EcoFlow</h1>
+                    <span class="brand-tagline">Smart Waste Management</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item">
+                        <a href="#dashboard" class="nav-link active" data-target="dashboard-page">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#scheduling" class="nav-link" data-target="scheduling-page">
+                            <span class="nav-icon">📅</span>
+                            <span class="nav-text">Scheduling</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#routes" class="nav-link" data-target="routes-page">
+                            <span class="nav-icon">🛣️</span>
+                            <span class="nav-text">Routes</span>
+                            <span class="badge badge-warning">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#customers" class="nav-link" data-target="customers-page">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Customers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#billing" class="nav-link" data-target="billing-page">
+                            <span class="nav-icon">💰</span>
+                            <span class="nav-text">Billing</span>
+                            <span class="badge badge-danger">12</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#analytics" class="nav-link" data-target="analytics-page">
+                            <span class="nav-icon">📈</span>
+                            <span class="nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#fleet" class="nav-link" data-target="fleet-page">
+                            <span class="nav-icon">🚛</span>
+                            <span class="nav-text">Fleet</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#ai-assistant" class="nav-link" data-target="ai-page">
+                            <span class="nav-icon">🤖</span>
+                            <span class="nav-text">AI Assistant</span>
+                            <span class="badge badge-primary">New</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#ai-vision" class="nav-link" data-target="ai-vision-page">
+                            <span class="nav-icon">📸</span>
+                            <span class="nav-text" data-i18n="navAIVision">AI Waste Segregation</span>
+                            <span class="badge badge-success">AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#grievances" class="nav-link" data-target="grievances-page">
+                            <span class="nav-icon">🧹</span>
+                            <span class="nav-text" data-i18n="navGrievances">Citizen Grievances</span>
+                            <span class="badge badge-danger">SLA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#iot-bins" class="nav-link" data-target="iot-bins-page">
+                            <span class="nav-icon">📡</span>
+                            <span class="nav-text">IoT Sensor Bins</span>
+                            <span class="badge badge-primary">IoT</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#admin" class="nav-link" data-target="admin-page">
+                            <span class="nav-icon">👑</span>
+                            <span class="nav-text" data-i18n="navAdmin">Super Admin</span>
+                            <span class="badge badge-success">Auth</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile" onclick="window.EcoFlowAuth.showAdminLoginModal()" style="cursor: pointer;" title="Click to open Super Admin Login Portal">
+                    <div class="avatar">A</div>
+                    <div class="user-info">
+                        <span class="user-name">Admin</span>
+                        <span class="user-role">Super Admin</span>
+                    </div>
+                </div>
+                <button class="collapse-toggle" id="sidebar-collapse-btn" aria-label="Toggle Sidebar">
+                    <span>⏪</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN LAYOUT -->
+        <div class="main-layout">
+            <!-- HEADER -->
+            <header class="header" id="top-header">
+                <div class="header-left">
+                    <h2 class="page-title" id="current-page-title">Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-sm btn-secondary" onclick="EcoFlowTestSuite.runAll()" aria-label="Run System Automated Tests" title="Run Automated Tests (Ctrl+Shift+T)" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px;">
+                        <span>🧪</span>
+                        <span style="font-weight: 600;">Run Tests</span>
+                    </button>
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="global-search" placeholder="Search routes, customers, fleets...">
+                        <span class="search-shortcut">Ctrl+K</span>
+                    </div>
+
+                    <!-- Language Switcher Dropdown -->
+                    <select id="language-selector" onchange="EcoFlowI18n.setLanguage(this.value)" style="background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="hi">🇮🇳 हिंदी</option>
+                        <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+                        <option value="ta">🇮🇳 தமிழ்</option>
+                    </select>
+
+                    <!-- Circular Super Admin Button (Next to Notification Bell) -->
+                    <button class="super-admin-icon-btn" id="super-admin-btn" onclick="window.location.hash='admin'; if(typeof EcoFlow !== 'undefined') EcoFlow.navigate('admin');" aria-label="Super Admin Portal" title="👑 Super Admin Security Portal (admin@ecoflow.in)" style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.3)); border: 2px solid #10b981; font-size: 20px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); z-index: 100;">
+                        👑
+                    </button>
+
+                    <div class="notification-wrapper">
+                        <button class="notification-btn" id="notification-bell" aria-label="Notifications">
+                            <span class="bell-icon">🔔</span>
+                            <span class="notification-badge" id="unread-count">4</span>
+                        </button>
+                        <!-- Notification Dropdown -->
+                        <div class="notification-dropdown hidden" id="notification-dropdown">
+                            <div class="dropdown-header">
+                                <h3>Notifications</h3>
+                                <button class="mark-all-read" id="mark-all-read">Mark all as read</button>
+                            </div>
+                            <ul class="notification-list" id="notification-list">
+                                <li class="notification-item unread">
+                                    <div class="notif-icon bg-warning">⚠️</div>
+                                    <div class="notif-content">
+                                        <p>Truck KA-01-AB-1234 missed a stop at Koramangala 4th Block.</p>
+                                        <span class="notif-time">10 mins ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item unread">
+                                    <div class="notif-icon bg-success">✅</div>
+                                    <div class="notif-content">
+                                        <p>Swachh Bharat target for Ward 156 met for this week.</p>
+                                        <span class="notif-time">1 hour ago</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-avatar-dropdown">
+                        <button class="avatar-btn" id="avatar-btn">
+                            <div class="avatar">A</div>
+                            <span class="dropdown-icon">▼</span>
+                        </button>
+                        <ul class="avatar-menu hidden" id="avatar-menu">
+                            <li><a href="#" onclick="window.EcoFlowAuth.showAdminLoginModal(); return false;">👑 Super Admin Login</a></li>
+                            <li><a href="#" onclick="window.EcoFlowAuth.showSecuritySettingsModal(); return false;">🛡️ Security & API Keys</a></li>
+                            <li><a href="#" onclick="window.EcoFlowAuth.logout(); return false;" class="text-danger">🔒 Logout Session</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content" id="main-content" role="main" aria-label="Main Content Area">
+                
+                <!-- 1. DASHBOARD -->
+                <section class="page-section active" id="dashboard-page">
+                    <!-- Swachh Bharat Compliance Banner -->
+                    <div class="compliance-banner">
+                        <div class="banner-icon">🇮🇳</div>
+                        <div class="banner-text">
+                            <h4>Swachh Bharat Mission Compliance</h4>
+                            <p>City-wide segregation is at 82%. Ensure all wards hit 90% target this month.</p>
+                        </div>
+                        <button class="btn btn-primary btn-sm" onclick="Utils.showModal('🇮🇳 Swachh Bharat Ward Star Rating Calculator', getSwachhRatingHTML())">⭐ Rate Ward</button>
+                    </div>
+
+                    <!-- Autonomous Multi-Agent Control Center -->
+                    <div class="agent-control-panel" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8)); border: 1px solid rgba(16, 185, 129, 0.3); padding: 20px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 16px;">
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase;">🤖 Autonomous AI Engine</span>
+                                    <span style="font-size: 12px; color: #34d399; font-weight: bold;">● 4 Agents Active</span>
+                                </div>
+                                <h3 style="margin: 6px 0 2px 0; font-size: 20px; color: #f8fafc; font-family: 'Outfit', sans-serif;">Multi-Agent Command & Control Center</h3>
+                                <p style="color: #94a3b8; font-size: 13px; margin: 0;">Autonomous Agents auto-dispatching fleets, inspecting wards, and auditing revenue.</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="EcoFlowAgentSystem.runAllAgents()" style="display: flex; align-items: center; gap: 8px; padding: 10px 20px; font-weight: bold; background: linear-gradient(135deg, #10b981, #059669); border: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);">
+                                ⚡ Trigger Autonomous Agents
+                            </button>
+                        </div>
+
+                        <!-- 4 Agent Cards -->
+                        <div class="grid-4" id="agent-status-cards" style="margin-bottom: 16px;">
+                            <!-- Populated dynamically by Agent System JS -->
+                        </div>
+
+                        <!-- Live Agent Log Ticker -->
+                        <div style="background: rgba(10, 14, 26, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px;">
+                            <div style="font-size: 11px; font-weight: bold; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+                                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; animation: pulseRed 1.5s infinite;"></span>
+                                Live Autonomous Agent Execution Log
+                            </div>
+                            <div id="agent-live-logs" style="max-height: 140px; overflow-y: auto;">
+                                <!-- Live logs streamed by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Total Waste Collected</h3>
+                                <span class="stat-icon">🗑️</span>
+                            </div>
+                            <div class="stat-body">
+                                <h2 class="stat-value">2,847 tons</h2>
+                                <div class="stat-trend trend-up">
+                                    <span>↑ 12.5%</span>
+                                    <span class="trend-label">vs last month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Recycling Rate</h3>
+                                <span class="stat-icon">♻️</span>
+                            </div>
+                            <div class="stat-body">
+                                <h2 class="stat-value">67.3%</h2>
+                                <div class="stat-trend trend-up">
+                                    <span>↑ 4.2%</span>
+                                    <span class="trend-label">vs last month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Active Routes</h3>
+                                <span class="stat-icon">🛣️</span>
+                            </div>
+                            <div class="stat-body">
+                                <h2 class="stat-value">24/30</h2>
+                                <div class="stat-status">
+                                    <span class="status-dot healthy"></span>
+                                    <span>6 Routes Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Revenue</h3>
+                                <span class="stat-icon">₹</span>
+                            </div>
+                            <div class="stat-body">
+                                <h2 class="stat-value">₹18.4L</h2>
+                                <div class="stat-trend trend-up">
+                                    <span>↑ 8.7%</span>
+                                    <span class="trend-label">vs last month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-grid-2x2">
+                        <div class="chart-card">
+                            <h3>Waste Composition</h3>
+                            <div class="chart-container">
+                                <canvas id="wasteCompositionChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Weekly Collection (Tons)</h3>
+                            <div class="chart-container">
+                                <canvas id="weeklyCollectionChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Recycling Trend</h3>
+                            <div class="chart-container">
+                                <canvas id="recyclingTrendChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card env-impact-card">
+                            <h3>Environmental Impact</h3>
+                            <div class="impact-stats">
+                                <div class="impact-item">
+                                    <span class="impact-icon">☁️</span>
+                                    <div class="impact-details">
+                                        <h4 class="counter" id="co2-saved">14,250</h4>
+                                        <p>Kg CO₂ Saved</p>
+                                    </div>
+                                </div>
+                                <div class="impact-item">
+                                    <span class="impact-icon">🌳</span>
+                                    <div class="impact-details">
+                                        <h4 class="counter" id="trees-eq">842</h4>
+                                        <p>Trees Equivalent</p>
+                                    </div>
+                                </div>
+                                <div class="impact-item">
+                                    <span class="impact-icon">💧</span>
+                                    <div class="impact-details">
+                                        <h4 class="counter" id="water-saved">45,000</h4>
+                                        <p>Liters Water Saved</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="recent-activity-section">
+                        <div class="section-header">
+                            <h3>Recent Activity</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table" id="recent-activity-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Event</th>
+                                        <th>Location/Ward</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10:45 AM</td>
+                                        <td>Bulk waste collection completed</td>
+                                        <td>Indiranagar, Ward 71</td>
+                                        <td><span class="badge badge-success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10:15 AM</td>
+                                        <td>Vehicle breakdown reported (KA-05-MN-9988)</td>
+                                        <td>Jayanagar, Ward 153</td>
+                                        <td><span class="badge badge-danger">Alert</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>09:30 AM</td>
+                                        <td>New commercial customer onboarded</td>
+                                        <td>Whitefield, Ward 84</td>
+                                        <td><span class="badge badge-primary">New</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. SCHEDULING -->
+                <section class="page-section hidden" id="scheduling-page">
+                    <div class="section-top-bar">
+                        <div class="view-toggles">
+                            <button class="btn btn-outline active">Month</button>
+                            <button class="btn btn-outline">Week</button>
+                            <button class="btn btn-outline">Day</button>
+                        </div>
+                        <button class="btn btn-primary" id="add-schedule-btn">
+                            <span class="btn-icon">+</span> Add Schedule
+                        </button>
+                    </div>
+                    
+                    <div class="scheduling-layout">
+                        <!-- Calendar Container -->
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button class="btn-icon-only" id="prev-month">◀</button>
+                                <h3 id="current-month-year">August 2024</h3>
+                                <button class="btn-icon-only" id="next-month">▶</button>
+                            </div>
+                            <div class="calendar" id="main-calendar">
+                                <div class="calendar-days-header">
+                                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                                </div>
+                                <div class="calendar-grid" id="calendar-grid">
+                                    <!-- 42 cells generated by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Collections Sidebar -->
+                        <div class="upcoming-collections">
+                            <h3>Upcoming (Today)</h3>
+                            <ul class="schedule-list" id="today-schedule-list">
+                                <li class="schedule-item">
+                                    <div class="time-block">06:00 AM</div>
+                                    <div class="schedule-info">
+                                        <h4>Ward 12 - Wet Waste</h4>
+                                        <p>Truck: KA-01-AB-1234</p>
+                                    </div>
+                                </li>
+                                <li class="schedule-item">
+                                    <div class="time-block">08:30 AM</div>
+                                    <div class="schedule-info">
+                                        <h4>Tech Park - Dry/E-Waste</h4>
+                                        <p>Truck: KA-53-XY-9000</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Add Schedule Details Panel (Hidden by default, shown via JS) -->
+                    <div class="side-panel hidden" id="schedule-details-panel">
+                        <!-- Form elements described in prompt will be here -->
+                        <div class="panel-header">
+                            <h3>Create Schedule</h3>
+                            <button class="close-panel-btn" id="close-schedule-panel">×</button>
+                        </div>
+                        <div class="panel-body">
+                            <form id="schedule-form">
+                                <div class="form-group">
+                                    <label for="schedule-zone">Zone/Ward</label>
+                                    <select id="schedule-zone" class="form-control">
+                                        <option value="ward_12">Ward 12 - Malleshwaram</option>
+                                        <option value="ward_71">Ward 71 - Indiranagar</option>
+                                        <option value="ward_153">Ward 153 - Jayanagar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Waste Type</label>
+                                    <div class="checkbox-group">
+                                        <label><input type="checkbox" name="waste_type" value="wet"> Wet Waste ( गीला कचरा )</label>
+                                        <label><input type="checkbox" name="waste_type" value="dry"> Dry Waste ( सूखा कचरा )</label>
+                                        <label><input type="checkbox" name="waste_type" value="ewaste"> E-Waste</label>
+                                        <label><input type="checkbox" name="waste_type" value="hazardous"> Hazardous</label>
+                                        <label><input type="checkbox" name="waste_type" value="bulk"> Bulk</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="schedule-frequency">Frequency</label>
+                                    <select id="schedule-frequency" class="form-control">
+                                        <option value="daily">Daily</option>
+                                        <option value="alternate">Alternate days</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="biweekly">Bi-weekly</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="schedule-time">Time Slot</label>
+                                    <select id="schedule-time" class="form-control">
+                                        <option value="morning">Morning (06:00 - 10:00)</option>
+                                        <option value="afternoon">Afternoon (12:00 - 16:00)</option>
+                                        <option value="night">Night (22:00 - 02:00)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="schedule-vehicle">Assigned Vehicle</label>
+                                    <select id="schedule-vehicle" class="form-control">
+                                        <option value="ka01ab1234">KA-01-AB-1234 (Compactor)</option>
+                                        <option value="ka53xy9000">KA-53-XY-9000 (Tipper)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="schedule-notes">Notes</label>
+                                    <textarea id="schedule-notes" class="form-control" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Save Schedule</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. ROUTES -->
+                <section class="page-section hidden" id="routes-page">
+                    <div class="section-top-bar">
+                        <div class="filters">
+                            <select class="form-control" id="route-filter">
+                                <option value="all">All Routes</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" id="create-route-btn">+ Create Route</button>
+                    </div>
+
+                    <!-- Dual-Mode Map: Google Maps & Live GPS Radar -->
+                    <div class="map-card" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 16px; padding: 20px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                            <div>
+                                <h3 style="margin: 0; font-size: 18px; color: #f8fafc; font-family: 'Outfit', sans-serif; display: flex; align-items: center; gap: 8px;">
+                                    <span>🗺️ Google Maps Live Fleet & Route Navigator</span>
+                                </h3>
+                                <p style="color: #94a3b8; font-size: 12px; margin: 2px 0 0 0;">Interactive Google Maps GIS tracking Bangalore municipal waste collection routes & truck stops.</p>
+                            </div>
+                            
+                            <!-- View Switcher Controls -->
+                            <div style="display: flex; align-items: center; gap: 8px; background: rgba(30, 41, 59, 0.8); padding: 4px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                                <button class="btn btn-sm btn-primary" id="map-mode-gmaps" onclick="switchMapMode('gmaps')" style="padding: 4px 12px; font-size: 12px; font-weight: 600;">
+                                    🌐 Google Maps View
+                                </button>
+                                <button class="btn btn-sm btn-outline" id="map-mode-radar" onclick="switchMapMode('radar')" style="padding: 4px 12px; font-size: 12px; font-weight: 600;">
+                                    📡 Vector Radar View
+                                </button>
+                                <a href="https://maps.google.com/?q=Koramangala+Bangalore" target="_blank" class="btn btn-sm btn-secondary" style="padding: 4px 10px; font-size: 12px; display: inline-flex; align-items: center; gap: 4px; text-decoration: none;" title="Open directly in Google Maps Mobile App">
+                                    <span>🚀</span> Open in App
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Map Container 1: Google Maps Interactive Embed -->
+                        <div id="google-maps-container" style="width: 100%; height: 360px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <iframe 
+                                id="gmaps-iframe"
+                                title="Google Maps Bangalore Collection Routes"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                loading="lazy" 
+                                allowfullscreen
+                                src="https://maps.google.com/maps?q=Koramangala%20Bangalore&t=&z=14&ie=UTF8&iwloc=&output=embed">
+                            </iframe>
+                        </div>
+
+                        <!-- Map Container 2: Vector Radar Canvas -->
+                        <div id="radar-map-container" style="width: 100%; height: 360px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; display: none;">
+                            <canvas id="gps-map-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="grid-3" id="routes-grid">
+                        <!-- Route Card 1 -->
+                        <div class="route-card">
+                            <div class="route-header">
+                                <h3>Route A-12: Koramangala</h3>
+                                <span class="badge badge-success">Active</span>
+                            </div>
+                            <div class="route-stats">
+                                <div class="r-stat"><span>🛑 Stops:</span> <strong>42/50</strong></div>
+                                <div class="r-stat"><span>📏 Dist:</span> <strong>14 km</strong></div>
+                                <div class="r-stat"><span>⏱️ Est:</span> <strong>3h 15m</strong></div>
+                            </div>
+                            <div class="route-assignment">
+                                <p><strong>Vehicle:</strong> KA-01-MJ-5566</p>
+                                <p><strong>Driver:</strong> Ramesh Kumar</p>
+                            </div>
+                            <div class="route-progress">
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar bg-success" style="width: 84%;"></div>
+                                </div>
+                                <span class="progress-text">84% Completed</span>
+                            </div>
+                            <div class="route-actions">
+                                <button class="btn btn-sm btn-outline view-route-btn" data-id="route_a12">View</button>
+                                <button class="btn btn-sm btn-outline optimize-route-btn">Optimize</button>
+                                <button class="btn btn-sm btn-outline">Edit</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Route Card 2 -->
+                        <div class="route-card">
+                            <div class="route-header">
+                                <h3>Route B-05: HSR Layout</h3>
+                                <span class="badge badge-warning">Pending</span>
+                            </div>
+                            <div class="route-stats">
+                                <div class="r-stat"><span>🛑 Stops:</span> <strong>0/35</strong></div>
+                                <div class="r-stat"><span>📏 Dist:</span> <strong>9.5 km</strong></div>
+                                <div class="r-stat"><span>⏱️ Est:</span> <strong>2h 45m</strong></div>
+                            </div>
+                            <div class="route-assignment">
+                                <p><strong>Vehicle:</strong> KA-51-AB-1122</p>
+                                <p><strong>Driver:</strong> Suresh Singh</p>
+                            </div>
+                            <div class="route-progress">
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar bg-warning" style="width: 0%;"></div>
+                                </div>
+                                <span class="progress-text">0% Completed</span>
+                            </div>
+                            <div class="route-actions">
+                                <button class="btn btn-sm btn-outline view-route-btn" data-id="route_b05">View</button>
+                                <button class="btn btn-sm btn-outline optimize-route-btn">Optimize</button>
+                                <button class="btn btn-sm btn-outline">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. CUSTOMERS -->
+                <section class="page-section hidden" id="customers-page">
+                    <div class="section-top-bar">
+                        <div class="tabs" id="customer-tabs">
+                            <button class="tab-btn active" data-filter="all">All</button>
+                            <button class="tab-btn" data-filter="residential">Residential</button>
+                            <button class="tab-btn" data-filter="commercial">Commercial</button>
+                            <button class="tab-btn" data-filter="industrial">Industrial</button>
+                        </div>
+                        <div class="actions">
+                            <div class="search-bar search-small">
+                                <input type="text" id="customer-search" placeholder="Search customers...">
+                            </div>
+                            <button class="btn btn-primary" id="add-customer-btn">+ Add Customer</button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table" id="customers-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Type</th>
+                                    <th>Ward/Zone</th>
+                                    <th>Plan</th>
+                                    <th>Status</th>
+                                    <th>Outstanding (₹)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 10 Sample Indian Customers -->
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-blue">S</div> <span>Sharma Residency (RWA)</span></div></td>
+                                    <td><span class="badge badge-info">Residential</span></td>
+                                    <td>Ward 150 - Bellandur</td>
+                                    <td>Premium</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 0</td>
+                                    <td>
+                                        <button class="action-btn" title="View">👁️</button>
+                                        <button class="action-btn" title="Edit">✏️</button>
+                                        <button class="action-btn text-danger" title="Delete">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-purple">R</div> <span>Reliance Fresh</span></div></td>
+                                    <td><span class="badge badge-warning">Commercial</span></td>
+                                    <td>Ward 71 - Indiranagar</td>
+                                    <td>Standard</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 4,500</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-green">A</div> <span>Anand Sweets</span></div></td>
+                                    <td><span class="badge badge-warning">Commercial</span></td>
+                                    <td>Ward 12 - Malleshwaram</td>
+                                    <td>Basic</td>
+                                    <td><span class="badge badge-danger">Inactive</span></td>
+                                    <td>₹ 1,200</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-orange">T</div> <span>Tata Motors Plant</span></div></td>
+                                    <td><span class="badge badge-dark">Industrial</span></td>
+                                    <td>Peenya Industrial Area</td>
+                                    <td>Premium</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 15,000</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-blue">P</div> <span>Prestige Shantiniketan</span></div></td>
+                                    <td><span class="badge badge-info">Residential</span></td>
+                                    <td>Ward 84 - Whitefield</td>
+                                    <td>Premium</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 0</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-purple">K</div> <span>KFC Outlet</span></div></td>
+                                    <td><span class="badge badge-warning">Commercial</span></td>
+                                    <td>Ward 174 - HSR Layout</td>
+                                    <td>Standard</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 2,100</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-blue">G</div> <span>Gopalan Arcade</span></div></td>
+                                    <td><span class="badge badge-warning">Commercial</span></td>
+                                    <td>Ward 160 - RR Nagar</td>
+                                    <td>Premium</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 0</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-green">S</div> <span>Sobha City RWA</span></div></td>
+                                    <td><span class="badge badge-info">Residential</span></td>
+                                    <td>Ward 7 - Byatarayanapura</td>
+                                    <td>Standard</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 800</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-dark">I</div> <span>Infosys Campus</span></div></td>
+                                    <td><span class="badge badge-dark">Industrial</span></td>
+                                    <td>Electronic City</td>
+                                    <td>Premium</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 0</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-avatar-name"><div class="avatar-sm bg-orange">U</div> <span>Udupi Grand Hotel</span></div></td>
+                                    <td><span class="badge badge-warning">Commercial</span></td>
+                                    <td>Ward 153 - Jayanagar</td>
+                                    <td>Standard</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>₹ 3,200</td>
+                                    <td>
+                                        <button class="action-btn">👁️</button>
+                                        <button class="action-btn">✏️</button>
+                                        <button class="action-btn text-danger">🗑️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 5. BILLING -->
+                <section class="page-section hidden" id="billing-page">
+                    <!-- Summary Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header"><h3>Total Revenue</h3></div>
+                            <h2 class="stat-value">₹ 24,50,000</h2>
+                            <p class="text-sm text-muted">YTD 2024</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header"><h3>Outstanding</h3></div>
+                            <h2 class="stat-value text-warning">₹ 3,45,000</h2>
+                            <p class="text-sm text-muted">Awaiting payment</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header"><h3>Overdue</h3></div>
+                            <h2 class="stat-value text-danger">₹ 85,000</h2>
+                            <p class="text-sm text-muted">Past 30 days</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header"><h3>This Month</h3></div>
+                            <h2 class="stat-value text-success">₹ 1,84,000</h2>
+                            <p class="text-sm text-muted">Collected in Aug</p>
+                        </div>
+                    </div>
+
+                    <div class="billing-layout grid-layout-2-1">
+                        <div class="invoice-list-card">
+                            <div class="section-header">
+                                <h3>Recent Invoices</h3>
+                                <button class="btn btn-sm btn-primary" id="generate-invoice-btn">+ Generate Invoice</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table" id="invoices-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Invoice #</th>
+                                            <th>Customer</th>
+                                            <th>Amount (₹)</th>
+                                            <th>Date</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>INV-2024-001</strong></td>
+                                            <td>Tata Motors Plant</td>
+                                            <td>15,000</td>
+                                            <td>01-Aug-2024</td>
+                                            <td>15-Aug-2024</td>
+                                            <td><span class="badge badge-warning">Pending</span></td>
+                                            <td><button class="btn btn-sm btn-outline view-invoice-btn" data-id="INV-2024-001">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>INV-2024-002</strong></td>
+                                            <td>Sobha City RWA</td>
+                                            <td>12,500</td>
+                                            <td>28-Jul-2024</td>
+                                            <td>12-Aug-2024</td>
+                                            <td><span class="badge badge-success">Paid</span></td>
+                                            <td><button class="btn btn-sm btn-outline view-invoice-btn" data-id="INV-2024-002">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>INV-2024-003</strong></td>
+                                            <td>Anand Sweets</td>
+                                            <td>1,200</td>
+                                            <td>15-Jul-2024</td>
+                                            <td>30-Jul-2024</td>
+                                            <td><span class="badge badge-danger">Overdue</span></td>
+                                            <td><button class="btn btn-sm btn-outline view-invoice-btn" data-id="INV-2024-003">View</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="revenue-chart-card chart-card">
+                            <h3>Revenue Overview</h3>
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. ANALYTICS -->
+                <section class="page-section hidden" id="analytics-page">
+                    <div class="section-top-bar">
+                        <h2>Analytics & Reporting</h2>
+                        <div class="actions">
+                            <button class="btn btn-outline">Export CSV</button>
+                            <button class="btn btn-outline">Export PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="environmental-impact-section">
+                        <h3 class="mb-4">City-Wide Environmental Impact</h3>
+                        <div class="impact-cards grid-4">
+                            <div class="impact-card">
+                                <div class="icon-wrap bg-teal">☁️</div>
+                                <h2 class="counter">45,210</h2>
+                                <p>CO₂ Reduced (Tons)</p>
+                            </div>
+                            <div class="impact-card">
+                                <div class="icon-wrap bg-green">♻️</div>
+                                <h2 class="counter">72.4</h2>
+                                <p>Landfill Diverted (%)</p>
+                            </div>
+                            <div class="impact-card">
+                                <div class="icon-wrap bg-olive">🌳</div>
+                                <h2 class="counter">12,840</h2>
+                                <p>Trees Saved</p>
+                            </div>
+                            <div class="impact-card">
+                                <div class="icon-wrap bg-blue">💧</div>
+                                <h2 class="counter">8.5M</h2>
+                                <p>Water Conserved (KL)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid-2x2 mt-5">
+                        <div class="chart-card">
+                            <h3>Waste Type Trends</h3>
+                            <div class="chart-container">
+                                <canvas id="wasteTrendsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Zone Performance</h3>
+                            <div class="chart-container">
+                                <canvas id="zonePerformanceChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Monthly Volume (Tons)</h3>
+                            <div class="chart-container">
+                                <canvas id="monthlyVolumeChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Recycling by Category</h3>
+                            <div class="chart-container">
+                                <canvas id="recyclingCategoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ward-performance-section mt-5">
+                        <h3>Ward-wise Performance (Swachh Bharat Metrics)</h3>
+                        <div class="table-responsive">
+                            <table class="data-table" id="ward-analytics-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ward Name</th>
+                                        <th>Segregation %</th>
+                                        <th>Collection Efficiency</th>
+                                        <th>Target Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ward 150 - Bellandur</td>
+                                        <td>88%</td>
+                                        <td>95%</td>
+                                        <td><span class="badge badge-success">On Track</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ward 71 - Indiranagar</td>
+                                        <td>92%</td>
+                                        <td>98%</td>
+                                        <td><span class="badge badge-success">Exceeded</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ward 12 - Malleshwaram</td>
+                                        <td>74%</td>
+                                        <td>85%</td>
+                                        <td><span class="badge badge-warning">Needs Improvement</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. FLEET -->
+                <section class="page-section hidden" id="fleet-page">
+                    <div class="fleet-overview grid-4 mb-4">
+                        <div class="stat-card">
+                            <h3>Total Vehicles</h3>
+                            <h2 class="stat-value">45</h2>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Active on Route</h3>
+                            <h2 class="stat-value text-success">32</h2>
+                        </div>
+                        <div class="stat-card">
+                            <h3>In Maintenance</h3>
+                            <h2 class="stat-value text-warning">4</h2>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Idle</h3>
+                            <h2 class="stat-value text-muted">9</h2>
+                        </div>
+                    </div>
+
+                    <div class="section-top-bar">
+                        <h3>Vehicle Directory</h3>
+                        <button class="btn btn-primary" id="add-vehicle-btn">+ Add Vehicle</button>
+                    </div>
+
+                    <div class="grid-3" id="fleet-grid">
+                        <!-- Vehicle 1 -->
+                        <div class="vehicle-card">
+                            <div class="vehicle-img-placeholder bg-blue-light">
+                                <span class="vehicle-icon">🚛</span>
+                            </div>
+                            <div class="vehicle-info">
+                                <h3>KA-01-AB-1234</h3>
+                                <p class="v-type">Compactor (10 Ton)</p>
+                                <div class="v-status">
+                                    <span class="status-dot healthy"></span> Active - Ward 150
+                                </div>
+                                <p class="v-driver">👨‍✈️ Driver: Ramesh K.</p>
+                                
+                                <div class="v-capacity-bar mt-3">
+                                    <div class="d-flex justify-between text-sm mb-1">
+                                        <span>Current Load</span>
+                                        <span>65%</span>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar bg-warning" style="width: 65%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="v-stats-mini mt-3">
+                                    <div><span>Trips</span><strong>3</strong></div>
+                                    <div><span>Dist</span><strong>42 km</strong></div>
+                                </div>
+
+                                <div class="vehicle-actions mt-3">
+                                    <button class="btn btn-sm btn-outline">GPS Track</button>
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle 2 -->
+                        <div class="vehicle-card">
+                            <div class="vehicle-img-placeholder bg-gray">
+                                <span class="vehicle-icon">🛻</span>
+                            </div>
+                            <div class="vehicle-info">
+                                <h3>KA-53-XY-9000</h3>
+                                <p class="v-type">Mini-truck / Auto Tipper</p>
+                                <div class="v-status">
+                                    <span class="status-dot warning"></span> Maintenance
+                                </div>
+                                <p class="v-driver">👨‍✈️ Driver: Unassigned</p>
+                                
+                                <div class="v-capacity-bar mt-3">
+                                    <div class="d-flex justify-between text-sm mb-1">
+                                        <span>Current Load</span>
+                                        <span>0%</span>
+                                    </div>
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar bg-gray" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="v-stats-mini mt-3">
+                                    <div><span>Trips</span><strong>0</strong></div>
+                                    <div><span>Dist</span><strong>0 km</strong></div>
+                                </div>
+
+                                <div class="vehicle-actions mt-3">
+                                    <button class="btn btn-sm btn-outline">Service Log</button>
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. AI ASSISTANT -->
+                <section class="page-section hidden" id="ai-page">
+                    <div class="chat-container">
+                        <div class="chat-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div class="ai-avatar">🤖</div>
+                                <div class="ai-info">
+                                    <h3>EcoFlow AI Assistant</h3>
+                                    <p>Voice-Enabled Smart Waste AI</p>
+                                </div>
+                            </div>
+                            <!-- 3D Glowing Voice Ball Visualizer -->
+                            <div class="voice-orb-wrapper" style="display: flex; align-items: center; gap: 10px; background: rgba(15, 23, 42, 0.7); padding: 4px 16px; border-radius: 30px; border: 1px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(10px);">
+                                <canvas id="ai-voice-orb" width="50" height="50" style="width: 36px; height: 36px;"></canvas>
+                                <span id="ai-voice-status" style="font-size: 12px; font-weight: 600; color: #34d399; font-family: 'Inter', sans-serif;">AI Ready (Click 🎙️)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-messages" id="chat-messages">
+                            <!-- Welcome Message -->
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <p>Namaste! 🙏 I'm your EcoFlow AI Assistant. I can help you with waste segregation, optimize your routes, explain local recycling rules, or generate reports.</p>
+                                    <p>How can I assist you today?</p>
+                                </div>
+                            </div>
+
+                            <!-- Sorting Guide Card embedded in chat -->
+                            <div class="message ai-message">
+                                <div class="message-content sorting-guide-cards grid-3">
+                                    <div class="sort-card wet-waste">
+                                        <div class="bin-icon">🟢</div>
+                                        <h4>Wet Waste</h4>
+                                        <p>Food scraps, fruit peels, meat, garden waste.</p>
+                                    </div>
+                                    <div class="sort-card dry-waste">
+                                        <div class="bin-icon">🔵</div>
+                                        <h4>Dry Waste</h4>
+                                        <p>Paper, plastic, glass, metal, cardboard.</p>
+                                    </div>
+                                    <div class="sort-card haz-waste">
+                                        <div class="bin-icon">🔴</div>
+                                        <h4>Hazardous</h4>
+                                        <p>Batteries, medical waste, paints, chemicals.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-quick-actions">
+                            <button class="chip">How to segregate waste?</button>
+                            <button class="chip">Recycling rules in Bangalore</button>
+                            <button class="chip">Optimize Route A-12</button>
+                            <button class="chip">Composting tips</button>
+                            <button class="chip">E-waste disposal centers</button>
+                        </div>
+
+                        <div class="chat-input-area">
+                            <input type="text" id="ai-chat-input" placeholder="Ask anything about waste management or click 🎙️ to speak...">
+                            <button class="btn btn-secondary" id="ai-mic-btn" aria-label="Voice Input Speech Recognition" title="Click to Speak (Voice Input)" style="padding: 8px 12px; font-size: 16px;">
+                                🎙️
+                            </button>
+                            <button class="btn btn-primary" id="ai-send-btn">
+                                <span>➤</span> Send
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. SUPER ADMIN LOGIN & SECURITY PORTAL PAGE -->
+                <section class="page-section hidden" id="admin-page">
+                    <div style="max-width: 520px; margin: 20px auto; font-family: 'Inter', sans-serif;">
+
+                        <!-- Header & Logo Badge -->
+                        <div style="text-align: center; margin-bottom: 28px;">
+                            <div style="width: 72px; height: 72px; margin: 0 auto 14px auto; background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(5,150,105,0.35)); border: 2px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; box-shadow: 0 0 30px rgba(16, 185, 129, 0.35);">
+                                👑
+                            </div>
+                            <h2 style="margin: 8px 0 4px 0; color: #f8fafc; font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800;">EcoFlow Super Admin</h2>
+                            <p style="color: #64748b; font-size: 13px; margin: 0;">Enterprise Authentication & Access Control</p>
+                        </div>
+
+                        <!-- Login / Register Tabs -->
+                        <div style="display: flex; background: rgba(15,23,42,0.6); border-radius: 12px; padding: 4px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.06);">
+                            <button id="tab-login" onclick="switchAuthTab('login')" style="flex: 1; padding: 10px; border-radius: 10px; border: none; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.25s; background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 2px 10px rgba(16,185,129,0.3);">
+                                🔐 Sign In
+                            </button>
+                            <button id="tab-register" onclick="switchAuthTab('register')" style="flex: 1; padding: 10px; border-radius: 10px; border: none; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.25s; background: transparent; color: #64748b;">
+                                📝 Register
+                            </button>
+                        </div>
+
+                        <!-- ===== LOGIN PANEL ===== -->
+                        <div id="panel-login" style="background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.9)); border: 1px solid rgba(16,185,129,0.3); border-radius: 20px; padding: 32px; box-shadow: 0 16px 48px rgba(0,0,0,0.4);">
+
+                            <!-- Demo Credentials -->
+                            <div style="background: rgba(16,185,129,0.08); border: 1px dashed rgba(16,185,129,0.3); border-radius: 10px; padding: 10px 14px; margin-bottom: 20px; font-size: 12px; color: #34d399;">
+                                💡 Demo: <code style="color: #fff; background: rgba(0,0,0,0.3); padding: 1px 6px; border-radius: 3px;">admin@ecoflow.in</code> / <code style="color: #fff; background: rgba(0,0,0,0.3); padding: 1px 6px; border-radius: 3px;">admin123</code>
+                            </div>
+
+                            <form onsubmit="event.preventDefault(); handlePageAdminLogin();">
+                                <div style="margin-bottom: 16px;">
+                                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Email Address</label>
+                                    <div style="position: relative;">
+                                        <span style="position: absolute; left: 12px; top: 11px; font-size: 15px;">📧</span>
+                                        <input type="email" id="page-admin-email" value="admin@ecoflow.in" placeholder="admin@ecoflow.in" required style="width: 100%; padding: 11px 12px 11px 38px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='#10b981'" onblur="this.style.borderColor='#1e293b'">
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 16px;">
+                                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Password</label>
+                                    <div style="position: relative;">
+                                        <span style="position: absolute; left: 12px; top: 11px; font-size: 15px;">🔑</span>
+                                        <input type="password" id="page-admin-password" value="admin123" placeholder="••••••••" required style="width: 100%; padding: 11px 70px 11px 38px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='#10b981'" onblur="this.style.borderColor='#1e293b'">
+                                        <button type="button" onclick="togglePassVisibility()" style="position: absolute; right: 10px; top: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #94a3b8; cursor: pointer; font-size: 12px; padding: 4px 10px; border-radius: 6px;">👁️</button>
+                                    </div>
+                                </div>
+
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                                    <div>
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Role</label>
+                                        <select id="page-admin-role" style="width: 100%; padding: 11px 8px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 13px; box-sizing: border-box;">
+                                            <option value="Super Admin">👑 Super Admin</option>
+                                            <option value="Fleet Manager">🚛 Fleet Manager</option>
+                                            <option value="Auditor">📊 Auditor</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">2FA Code</label>
+                                        <div style="position: relative;">
+                                            <span style="position: absolute; left: 12px; top: 11px; font-size: 15px;">📲</span>
+                                            <input type="text" id="page-admin-2fa" value="849201" placeholder="6-digit OTP" style="width: 100%; padding: 11px 12px 11px 38px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <label style="font-size: 12px; color: #64748b; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                        <input type="checkbox" checked style="width: 15px; height: 15px; accent-color: #10b981;"> Remember me
+                                    </label>
+                                    <a href="#" onclick="triggerForgotPasswordRecovery(); return false;" style="font-size: 12px; color: #10b981; font-weight: 600; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#34d399'" onmouseout="this.style.color='#10b981'">Forgot Password?</a>
+                                </div>
+
+                                <button type="submit" style="width: 100%; padding: 13px; font-size: 15px; font-weight: 700; background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 20px rgba(16,185,129,0.35); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 6px 25px rgba(16,185,129,0.5)'" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 20px rgba(16,185,129,0.35)'">
+                                    🔓 Sign In to Super Admin Portal
+                                </button>
+                            </form>
+
+                            <div style="text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06);">
+                                <p style="margin: 0; font-size: 12px; color: #475569;">Don't have an account? <a href="#" onclick="switchAuthTab('register'); return false;" style="color: #10b981; font-weight: 600; text-decoration: none;">Create one →</a></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== REGISTER PANEL ===== -->
+                        <div id="panel-register" style="display: none; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.9)); border: 1px solid rgba(59,130,246,0.3); border-radius: 20px; padding: 32px; box-shadow: 0 16px 48px rgba(0,0,0,0.4);">
+
+                            <form onsubmit="event.preventDefault(); handlePageAdminRegister();">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                                    <div>
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">First Name</label>
+                                        <input type="text" id="reg-first-name" placeholder="Rahul" required style="width: 100%; padding: 11px 12px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#1e293b'">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Last Name</label>
+                                        <input type="text" id="reg-last-name" placeholder="Sharma" required style="width: 100%; padding: 11px 12px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#1e293b'">
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 16px;">
+                                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Email Address</label>
+                                    <div style="position: relative;">
+                                        <span style="position: absolute; left: 12px; top: 11px; font-size: 15px;">📧</span>
+                                        <input type="email" id="reg-email" placeholder="you@company.in" required style="width: 100%; padding: 11px 12px 11px 38px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#1e293b'">
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 16px;">
+                                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Create Password</label>
+                                    <div style="position: relative;">
+                                        <span style="position: absolute; left: 12px; top: 11px; font-size: 15px;">🔑</span>
+                                        <input type="password" id="reg-password" placeholder="Min. 8 characters" required minlength="4" style="width: 100%; padding: 11px 12px 11px 38px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#1e293b'">
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 16px;">
+                                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Confirm Password</label>
+                                    <div style="position: relative;">
+                                        <span style="position: absolute; left: 12px; top: 11px; font-size: 15px;">🔒</span>
+                                        <input type="password" id="reg-confirm-password" placeholder="Re-enter password" required style="width: 100%; padding: 11px 12px 11px 38px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 14px; box-sizing: border-box;" onfocus="this.style.borderColor='#3b82f6'" onblur="this.style.borderColor='#1e293b'">
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 16px;">
+                                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Request Role</label>
+                                    <select id="reg-role" style="width: 100%; padding: 11px 8px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 10px; color: #f8fafc; font-size: 13px; box-sizing: border-box;">
+                                        <option value="Fleet Manager">🚛 Fleet Dispatch Officer</option>
+                                        <option value="Ward Inspector">🔍 Ward Inspector</option>
+                                        <option value="Municipal Auditor">📊 Municipal Swachh Auditor</option>
+                                        <option value="Data Analyst">📈 Data Analyst</option>
+                                    </select>
+                                </div>
+
+                                <div style="margin-bottom: 20px;">
+                                    <label style="font-size: 12px; color: #64748b; display: flex; align-items: flex-start; gap: 8px; cursor: pointer; line-height: 1.4;">
+                                        <input type="checkbox" required style="width: 15px; height: 15px; accent-color: #3b82f6; margin-top: 2px;"> I agree to EcoFlow's Terms of Service and Privacy Policy for Municipal Waste Management Systems.
+                                    </label>
+                                </div>
+
+                                <button type="submit" style="width: 100%; padding: 13px; font-size: 15px; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; border: none; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 20px rgba(59,130,246,0.35); transition: transform 0.15s, box-shadow 0.15s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 6px 25px rgba(59,130,246,0.5)'" onmouseout="this.style.transform='none'; this.style.boxShadow='0 4px 20px rgba(59,130,246,0.35)'">
+                                    📝 Create Account & Request Admin Access
+                                </button>
+                            </form>
+
+                            <div style="text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06);">
+                                <p style="margin: 0; font-size: 12px; color: #475569;">Already have an account? <a href="#" onclick="switchAuthTab('login'); return false;" style="color: #10b981; font-weight: 600; text-decoration: none;">Sign in →</a></p>
+                            </div>
+                        </div>
+
+                        <!-- ===== POST-AUTH DASHBOARD (shown after successful login) ===== -->
+                        <div id="page-super-admin-dashboard" style="display: none; margin-top: 24px; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.9)); border: 1px solid rgba(16,185,129,0.4); border-radius: 20px; padding: 28px; box-shadow: 0 16px 48px rgba(0,0,0,0.4);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 22px;">👑</span>
+                                        <h3 style="margin: 0; color: #34d399; font-size: 18px; font-weight: 700;">Session Active</h3>
+                                        <span style="background: #10b981; color: #0f172a; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 800;">● LIVE</span>
+                                    </div>
+                                    <p style="margin: 4px 0 0 0; color: #94a3b8; font-size: 12px;">Logged in as: <strong id="authenticated-email-display" style="color: #f8fafc;">admin@ecoflow.in</strong></p>
+                                </div>
+                                <button onclick="handleAdminLogout()" style="background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); color: #f87171; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600;">🔒 Logout</button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <button onclick="EcoFlowTestSuite.runAll()" style="padding: 14px; text-align: left; display: flex; align-items: center; gap: 10px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 12px; cursor: pointer; color: #f8fafc; transition: background 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.15)'" onmouseout="this.style.background='rgba(16,185,129,0.08)'">
+                                    <span style="font-size: 20px;">🧪</span>
+                                    <div>
+                                        <strong style="display: block; font-size: 13px;">Run Tests</strong>
+                                        <span style="font-size: 11px; color: #64748b;">System Diagnostics</span>
+                                    </div>
+                                </button>
+                                <button onclick="EcoFlowAgentSystem.runAllAgents()" style="padding: 14px; text-align: left; display: flex; align-items: center; gap: 10px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; cursor: pointer; color: #f8fafc; transition: background 0.2s;" onmouseover="this.style.background='rgba(59,130,246,0.15)'" onmouseout="this.style.background='rgba(59,130,246,0.08)'">
+                                    <span style="font-size: 20px;">⚡</span>
+                                    <div>
+                                        <strong style="display: block; font-size: 13px;">AI Agents</strong>
+                                        <span style="font-size: 11px; color: #64748b;">Autonomous Dispatch</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Security Footer -->
+                        <div style="text-align: center; margin-top: 20px;">
+                            <p style="margin: 0; font-size: 11px; color: #334155;">🛡️ 256-bit AES Encrypted · ISO 27001 Compliant · Municipal Gov Auth</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 10. AI COMPUTER VISION WASTE SEGREGATION PAGE -->
+                <section class="page-section hidden" id="ai-vision-page">
+                    <div style="max-width: 900px; margin: 0 auto; font-family: 'Inter', sans-serif;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <span style="background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                                📸 Computer Vision AI Neural Network
+                            </span>
+                            <h2 style="margin: 10px 0 6px 0; color: #f8fafc; font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800;">Automated CPCB Waste Stream Segregation</h2>
+                            <p style="color: #94a3b8; font-size: 14px; margin: 0;">Instant image recognition for Wet, Dry, E-Waste & Bio-Medical Waste streams as per CPCB 2016 Rules.</p>
+                        </div>
+
+                        <!-- Sample Waste Image Picker -->
+                        <h4 style="color: #cbd5e1; margin-bottom: 12px;">Select or Upload Waste Photo for AI Analysis:</h4>
+                        <div id="vision-sample-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px;"></div>
+
+                        <!-- Custom Image Upload Simulation -->
+                        <div style="background: rgba(15,23,42,0.6); border: 2px dashed rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 28px;">
+                            <input type="file" id="vision-upload-input" accept="image/*" onchange="EcoFlowWasteVision.handleCustomUpload(event)" style="display: none;">
+                            <button onclick="document.getElementById('vision-upload-input').click()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; box-shadow: 0 4px 16px rgba(16,185,129,0.3);">
+                                📤 Upload Custom Waste Photo
+                            </button>
+                            <span style="display: block; font-size: 12px; color: #64748b; margin-top: 8px;">Supports JPG, PNG, WEBP · Auto-scales for mobile camera uploads</span>
+                        </div>
+
+                        <!-- Result Card -->
+                        <div id="vision-result-card" style="display: none;"></div>
+                    </div>
+                </section>
+
+                <!-- 11. CITIZEN SWACHH BHARAT GRIEVANCE & SLA PORTAL -->
+                <section class="page-section hidden" id="grievances-page">
+                    <div style="max-width: 960px; margin: 0 auto; font-family: 'Inter', sans-serif;">
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                            <div>
+                                <span style="background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                                    🧹 Swachh Survekshan Grievance Portal
+                                </span>
+                                <h2 style="margin: 8px 0 4px 0; color: #f8fafc; font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800;">Citizen Complaints & SLA Resolution</h2>
+                                <p style="color: #94a3b8; font-size: 14px; margin: 0;">Public complaint tracking with strict 12h, 24h & 48h resolution SLA timers.</p>
+                            </div>
+
+                            <button onclick="EcoFlowReports.exportCSV('audits')" style="background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; padding: 10px 18px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                📊 Export Audit CSV
+                            </button>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 24px;">
+                            <!-- File New Complaint -->
+                            <div style="background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.9)); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 24px; height: fit-content;">
+                                <h4 style="color: #f8fafc; margin: 0 0 16px 0; font-size: 16px; font-weight: 700;">📝 Register Grievance</h4>
+                                
+                                <form id="new-grievance-form" onsubmit="EcoFlowGrievances.submitNewGrievance(event)">
+                                    <div style="margin-bottom: 14px;">
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 4px;">Citizen Name</label>
+                                        <input type="text" id="grv-name" placeholder="Full Name" required style="width: 100%; padding: 10px 12px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 8px; color: #f8fafc; font-size: 13px; box-sizing: border-box;">
+                                    </div>
+
+                                    <div style="margin-bottom: 14px;">
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 4px;">Ward Area</label>
+                                        <select id="grv-ward" style="width: 100%; padding: 10px 12px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 8px; color: #f8fafc; font-size: 13px; box-sizing: border-box;">
+                                            <option value="Ward 150 (Bellandur)">Ward 150 (Bellandur)</option>
+                                            <option value="Ward 174 (HSR Layout)">Ward 174 (HSR Layout)</option>
+                                            <option value="Ward 12 (Indiranagar)">Ward 12 (Indiranagar)</option>
+                                            <option value="Ward 84 (Koramangala)">Ward 84 (Koramangala)</option>
+                                        </select>
+                                    </div>
+
+                                    <div style="margin-bottom: 14px;">
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 4px;">Issue Description</label>
+                                        <textarea id="grv-issue" rows="3" placeholder="Describe waste overflow, missed collection, or illegal dumping..." required style="width: 100%; padding: 10px 12px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 8px; color: #f8fafc; font-size: 13px; box-sizing: border-box; resize: none;"></textarea>
+                                    </div>
+
+                                    <div style="margin-bottom: 20px;">
+                                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 4px;">Priority / Severity</label>
+                                        <select id="grv-priority" style="width: 100%; padding: 10px 12px; background: rgba(15,23,42,0.9); border: 1px solid #1e293b; border-radius: 8px; color: #f8fafc; font-size: 13px; box-sizing: border-box;">
+                                            <option value="CRITICAL">🔥 CRITICAL (12h SLA - Hazardous / Fire Risk)</option>
+                                            <option value="HIGH" selected>⚠️ HIGH (24h SLA - Overflowing Bin)</option>
+                                            <option value="MEDIUM">ℹ️ MEDIUM (48h SLA - Missed Route)</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #ef4444, #dc2626); color: white; border: none; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; box-shadow: 0 4px 16px rgba(239,68,68,0.3);">
+                                        🚀 File Grievance Ticket
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Live Ticket List -->
+                            <div>
+                                <h4 style="color: #f8fafc; margin: 0 0 16px 0; font-size: 16px; font-weight: 700;">📌 Active Swachh Bharat Tickets</h4>
+                                <div id="grievance-ticket-list"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                <!-- 12. IOT SENSOR FUSION BINS PAGE -->
+                <section class="page-section hidden" id="iot-bins-page">
+                    <div style="max-width: 960px; margin: 0 auto; font-family: 'Inter', sans-serif;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <span style="background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                                📡 Arduino Uno & Sensor Fusion IoT Telemetry
+                            </span>
+                            <h2 style="margin: 10px 0 6px 0; color: #f8fafc; font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800;">Smart Bin Automated Segregation Telemetry</h2>
+                            <p style="color: #94a3b8; font-size: 14px; margin: 0;">Ultrasonic WFL Fill Level, Moisture & Metal Inductive Sensors with Servo Gate Actuation.</p>
+                        </div>
+
+                        <div id="iot-sensor-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;"></div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Modal Container -->
+    <div id="modal-container" class="modal-overlay hidden" onclick="if(event.target === this) Utils.hideModal();">
+        <div class="modal-box" id="dynamic-modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="close-modal-btn" id="close-modal-btn" onclick="Utils.hideModal()">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content injected here by JS -->
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button class="btn btn-outline" id="modal-cancel-btn" onclick="Utils.hideModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS (Loaded in proper dependency order with defer) -->
+    <script src="js/i18n.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/test-suite.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/agent-system.js" defer></script>
+    <script src="js/map-visualizer.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+    <script src="js/scheduling.js" defer></script>
+    <script src="js/routes.js" defer></script>
+    <script src="js/customers.js" defer></script>
+    <script src="js/billing.js" defer></script>
+    <script src="js/analytics.js" defer></script>
+    <script src="js/fleet.js" defer></script>
+    <script src="js/ai-assistant.js" defer></script>
+    <script src="js/waste-vision.js" defer></script>
+    <script src="js/grievances.js" defer></script>
+    <script src="js/iot-sensors.js" defer></script>
+    <script src="js/reports.js" defer></script>
+    <script src="js/notifications.js" defer></script>
+</body>
+</html>
