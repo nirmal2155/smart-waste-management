@@ -5,7 +5,7 @@
 [![Security Level](https://img.shields.io/badge/Security-Level_4_AES256-3b82f6.svg)](#-security--authentication)
 [![CPCB Compliant](https://img.shields.io/badge/CPCB-2016_Rules-f59e0b.svg)](#-cpcb-compliance)
 
-**EcoFlow** is an enterprise-grade, data-driven Municipal Smart Waste Management system integrating **Arduino IoT Sensor Fusion**, **Lightweight Edge Deep Learning**, **Priority-Considered Green Vehicle Routing (PCGVRP)**, **Predictive Maintenance (PdM)**, and **Swachh Bharat Citizen SLA Ticket Resolution**.
+**EcoFlow v3.0** is an ultra-premium, enterprise-grade Municipal Smart Waste Management platform integrating **Arduino IoT Sensor Fusion**, **Edge Deep Learning AI Vision**, **Priority-Considered Green Vehicle Routing (PCGVRP)**, **Predictive Maintenance (PdM)**, **Real-time City Command Center**, **Carbon Credits Marketplace (CAR/Verra VCS)**, **Smart Bin Digital Twin Network (48 bins)**, and **Swachh Bharat Citizen SLA Portal**.
 
 ---
 

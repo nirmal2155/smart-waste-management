@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ecoflow-cache-v7';
+const CACHE_NAME = 'ecoflow-cache-v8';
 const APP_SHELL = [
   './',
   './index.html',
@@ -25,7 +25,10 @@ const JS_ASSETS = [
   './js/grievances.js',
   './js/reports.js',
   './js/notifications.js',
-  './js/test-suite.js'
+  './js/test-suite.js',
+  './js/command-center.js',
+  './js/carbon-trading.js',
+  './js/smart-bins.js'
 ];
 
 self.addEventListener('install', (event) => {

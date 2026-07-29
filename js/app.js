@@ -179,7 +179,7 @@ const Utils = {
 // --- CORE APPLICATION ---
 const EcoFlow = {
     currentPage: 'dashboard',
-    pages: ['dashboard', 'scheduling', 'routes', 'customers', 'billing', 'analytics', 'fleet', 'ai-assistant', 'ai-vision', 'grievances', 'iot-bins', 'admin', 'super-admin-login'],
+    pages: ['dashboard', 'scheduling', 'routes', 'customers', 'billing', 'analytics', 'fleet', 'ai-assistant', 'ai-vision', 'grievances', 'iot-bins', 'command-center', 'carbon-trading', 'smart-bins', 'admin', 'super-admin-login'],
     
     // Sample notifications data
     notifications: [
@@ -383,6 +383,9 @@ const EcoFlow = {
             'ai-vision': 'ai-vision-page',
             'grievances': 'grievances-page',
             'iot-bins': 'iot-bins-page',
+            'command-center': 'command-center-page',
+            'carbon-trading': 'carbon-trading-page',
+            'smart-bins': 'smart-bins-page',
             'admin': 'admin-page',
             'super-admin-login': 'admin-page'
         };
@@ -430,10 +433,18 @@ const EcoFlow = {
                 'ai-vision': 'AI Waste Segregation',
                 'grievances': 'Citizen Grievances & SLA',
                 'iot-bins': 'IoT Sensor Fusion Bins Telemetry',
+                'command-center': '🎯 City Command & Control Center',
+                'carbon-trading': '🌿 Carbon Credits Marketplace',
+                'smart-bins': '📡 Smart Bin Network — Digital Twin',
                 'admin': 'Super Admin Authentication & Security Portal',
                 'super-admin-login': 'Super Admin Authentication & Security Portal'
             };
             this.pageTitle.textContent = titleMap[page] || 'Overview';
+
+            // Initialize page-specific modules on first load
+            if (page === 'command-center' && window.CommandCenter && !CommandCenter.isLive) CommandCenter.init();
+            if (page === 'carbon-trading' && window.CarbonTrading && !CarbonTrading._initialized) { CarbonTrading.init(); CarbonTrading._initialized = true; }
+            if (page === 'smart-bins' && window.SmartBinNetwork && !SmartBinNetwork._initialized) { SmartBinNetwork.init(); SmartBinNetwork._initialized = true; }
         }
 
         // Mobile: auto close sidebar on navigation
