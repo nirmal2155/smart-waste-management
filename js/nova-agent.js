@@ -140,6 +140,7 @@ When users want to go somewhere, end your response with one of these exact tags 
           <h3 style="margin:0 0 6px;color:#f8fafc;font-size:16px;">Gemini AI Unlock Karo</h3>
           <p style="margin:0 0 16px;color:#64748b;font-size:12px;line-height:1.5;">Real AI responses ke liye Google Gemini API key chahiye. <strong>Free hai!</strong><br>Niche link se 2 minute mein lo:</p>
           <a href="https://aistudio.google.com/app/apikey" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#4285f4,#34a853);color:#fff;text-decoration:none;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;margin-bottom:14px;">🌐 aistudio.google.com → Get API Key</a>
+          <p style="margin:-6px 0 14px;color:#ef4444;font-size:10px;line-height:1.4;">⚠️ Dhyaan rahe: Agar '401 Unauthorized' error aaye, toh verify karo ki key Google AI Studio se hi generate ki gayi hai aur active hai.</p>
           <input id="nova-key-input" type="password" placeholder="AIza... (paste your key here)" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:10px 14px;color:#f8fafc;font-size:13px;outline:none;margin-bottom:10px;" />
           <div style="display:flex;gap:8px;">
             <button onclick="NovaAgent.saveApiKey()" style="flex:1;background:linear-gradient(135deg,#10b981,#059669);border:none;border-radius:10px;padding:10px;color:#fff;font-weight:800;cursor:pointer;font-size:14px;">✅ Save & Activate</button>
@@ -250,7 +251,12 @@ When users want to go somewhere, end your response with one of these exact tags 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: 'say "ok"' }] }] })
       });
-      if (!test.ok) throw new Error('Invalid key');
+      
+      if (!test.ok) {
+        if (test.status === 401) throw new Error('401_UNAUTHORIZED');
+        throw new Error('API Error');
+      }
+      
       this.apiKey = key;
       localStorage.setItem('nova_gemini_key', key);
       status.textContent = '✅ Key valid! Gemini AI activated!';
@@ -263,7 +269,11 @@ When users want to go somewhere, end your response with one of these exact tags 
         this.showQuickChips();
       }, 1500);
     } catch (e) {
-      status.textContent = '❌ Key invalid ya network error. Check karo.';
+      if (e.message === '401_UNAUTHORIZED') {
+        status.textContent = '❌ 401 Error: Invalid Key. Google AI Studio se nai key banao.';
+      } else {
+        status.textContent = '❌ Key invalid ya network error. Check karo.';
+      }
       status.style.color = '#ef4444';
     }
   },
@@ -368,9 +378,11 @@ When users want to go somewhere, end your response with one of these exact tags 
     } catch (e) {
       this.hideTyping();
       console.error('[NOVA Gemini Error]', e);
-      if (e.message.includes('API key')) {
-        this.addBubble(`❌ API key issue: ${e.message}\n\n⚙️ Settings mein naya key add karo!`, 'nova');
-        setTimeout(() => this.showApiSetup(), 1000);
+      if (e.message.includes('API key') || e.message.includes('401') || e.message.includes('invalid authentication')) {
+        this.addBubble(`❌ **API Error (401 Unauthorized):** Aapki API key invalid hai ya cancel ho chuki hai.\n\n👉 Google AI Studio (aistudio.google.com) par jaake naya project banao aur nayi API key generate karke ⚙️ Settings mein dalo!`, 'nova');
+        this.apiKey = null;
+        localStorage.removeItem('nova_gemini_key');
+        setTimeout(() => this.showApiSetup(), 2000);
       } else {
         this.addBubble(`⚠️ Connection issue: ${e.message}\n\nOffline mode mein switch ho raha hoon...`, 'nova');
         this.callLocal(userText);
